@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# TODO
+# replace depends_on with links
+# replace version with version 3.0 max
+
 import os
 import subprocess
 import time
@@ -60,10 +64,13 @@ for service_name, service in services.items():
         # using the name of the image on the Docker Hub.
         del service["build"]
         service["image"] = hub_image
+#     if "depends_on" in service:
+#         del service["depends_on"]
+#         service["links"] = 'bla'
 
 # Wait for push operations to complete.
 for service_name, popen_object in push_operations.items():
-    print("Waiting for {} push to complete...").format(service_name)
+    print("Waiting for {} push to complete...".format(service_name))
     popen_object.wait()
     print("Done.")
 
@@ -79,4 +86,4 @@ with open(output_file, "w") as f:
     f.writelines(lines)
 
 print("Wrote new compose file.")
-print("COMPOSE_FILE={}").format(output_file)
+print("COMPOSE_FILE={}".format(output_file))
