@@ -12,21 +12,20 @@ $ docker-compose up --build
 $ docker-compose run --rm nodejs bash -c "npm install && npm run dev"
 ```
 
+### docker login (with latest `awscli`)
+
+```bash
+$ aws ecr get-login-password --region ${AWS_DEFAULT_REGION}) | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.{$AWS_DEFAULT_REGION}.amazonaws.com
+```
+
 ## Build and push docker to AWS ECR (Elastic Container Registry)
 
 ### Create ECR repository
 Create 2 repositories for `nginx` and `php-fpm`.
-Like below.
+Like below:
 
-- `laravel-ecs-demo/nginx`
-- `laravel-ecs-demo/php-fpm`
-
-### docker login (with latest `awscli`)
-
-```bash
-$ pip install awscli --upgrade
-$ $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION})
-```
+- `aws ecr create-repository --repository-name laravel-ecs-demo/nginx`
+- `aws ecr create-repository --repository-name laravel-ecs-demo/php-fpm`
 
 ### Build nodejs and assets(js/css)
 
