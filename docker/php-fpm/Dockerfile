@@ -7,10 +7,10 @@ RUN docker-php-ext-install zip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
-RUN mkdir -p /app
-ADD . /app/
+RUN mkdir -p /var/www
+ADD . /var/www
 
-WORKDIR /app
+WORKDIR /var/www
 
 RUN composer install
 RUN cp .env.example .env
