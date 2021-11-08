@@ -116,16 +116,13 @@ $ docker push ${REPOSITORY_URI_NGINX}:$IMAGE_TAG
     <th align="left">cluster compatibility</th><td>EC2 Linux + Networking</td>
   </tr>
   <tr>
-    <th align="left">EC2 Instance type</th><td>t2.small</td>
+    <th align="left">EC2 Instance type</th><td>t3.medium</td>
   </tr>
   <tr>
-    <th align="left">Provisioning model</th><td>Spot</td>
+    <th align="left">Provisioning model</th><td>On Demand</td>
   </tr>
   <tr>
-    <th align="left">Number of instances</th><td>2</td>
-  </tr>
-  <tr>
-    <th align="left">Maximum bid price (per instance/hour)</th><td>10($)</td>
+    <th align="left">Number of instances</th><td>1</td>
   </tr>
 </table>
 
